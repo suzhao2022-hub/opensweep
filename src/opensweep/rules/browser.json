@@ -1,0 +1,60 @@
+{
+  "_comment": "Browser caches only. Cookies, history, passwords and site data are never touched.",
+  "rules": [
+    {
+      "id": "chrome-cache",
+      "category": "browser",
+      "name": {"en": "Google Chrome cache", "zh_CN": "Chrome 浏览器缓存"},
+      "description": {"en": "Cached web pages and images. Logins, history and bookmarks are kept. Close Chrome first.", "zh_CN": "网页和图片缓存。不会删除登录状态、历史记录和书签。请先关闭 Chrome。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\Google\\Chrome\\User Data\\*\\Cache", "%LOCALAPPDATA%\\Google\\Chrome\\User Data\\*\\Code Cache", "%LOCALAPPDATA%\\Google\\Chrome\\User Data\\*\\GPUCache"],
+        "darwin": ["~/Library/Caches/Google/Chrome"],
+        "linux": ["~/.cache/google-chrome"]
+      },
+      "close_apps": ["chrome.exe", "Google Chrome", "chrome"]
+    },
+    {
+      "id": "edge-cache",
+      "category": "browser",
+      "name": {"en": "Microsoft Edge cache", "zh_CN": "Edge 浏览器缓存"},
+      "description": {"en": "Cached web pages and images. Logins, history and favorites are kept. Close Edge first.", "zh_CN": "网页和图片缓存。不会删除登录状态、历史记录和收藏夹。请先关闭 Edge。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\Microsoft\\Edge\\User Data\\*\\Cache", "%LOCALAPPDATA%\\Microsoft\\Edge\\User Data\\*\\Code Cache", "%LOCALAPPDATA%\\Microsoft\\Edge\\User Data\\*\\GPUCache"],
+        "darwin": ["~/Library/Caches/Microsoft Edge"]
+      },
+      "close_apps": ["msedge.exe", "Microsoft Edge"]
+    },
+    {
+      "id": "brave-cache",
+      "category": "browser",
+      "name": {"en": "Brave cache", "zh_CN": "Brave 浏览器缓存"},
+      "description": {"en": "Cached web pages and images. Close Brave first.", "zh_CN": "网页和图片缓存。请先关闭 Brave。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\BraveSoftware\\Brave-Browser\\User Data\\*\\Cache", "%LOCALAPPDATA%\\BraveSoftware\\Brave-Browser\\User Data\\*\\Code Cache", "%LOCALAPPDATA%\\BraveSoftware\\Brave-Browser\\User Data\\*\\GPUCache"]
+      },
+      "close_apps": ["brave.exe"]
+    },
+    {
+      "id": "firefox-cache",
+      "category": "browser",
+      "name": {"en": "Firefox cache", "zh_CN": "Firefox 浏览器缓存"},
+      "description": {"en": "Cached web pages and images. Close Firefox first.", "zh_CN": "网页和图片缓存。请先关闭 Firefox。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\Mozilla\\Firefox\\Profiles\\*\\cache2"],
+        "darwin": ["~/Library/Caches/Firefox/Profiles/*/cache2"],
+        "linux": ["~/.cache/mozilla/firefox/*/cache2"]
+      },
+      "close_apps": ["firefox.exe", "firefox"]
+    },
+    {
+      "id": "opera-cache",
+      "category": "browser",
+      "name": {"en": "Opera cache", "zh_CN": "Opera 浏览器缓存"},
+      "description": {"en": "Cached web pages and images. Close Opera first.", "zh_CN": "网页和图片缓存。请先关闭 Opera。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\Opera Software\\Opera Stable\\Cache", "%LOCALAPPDATA%\\Opera Software\\Opera GX Stable\\Cache"]
+      },
+      "close_apps": ["opera.exe"]
+    }
+  ]
+}

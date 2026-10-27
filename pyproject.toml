@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opensweep"
+dynamic = ["version"]
+description = "Free, open-source, no-nonsense disk cleaner with first-class support for AI model caches."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "OpenSweep contributors" }]
+keywords = ["disk cleaner", "cleanup", "huggingface", "ollama", "cache", "uninstaller"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Filesystems",
+]
+dependencies = [
+    "PySide6>=6.6",
+    "psutil>=5.9",
+    "send2trash>=1.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pyinstaller>=6.5"]
+
+[project.scripts]
+opensweep-cli = "opensweep.cli:main"
+
+[project.gui-scripts]
+opensweep = "opensweep.gui.app:main"
+
+[project.urls]
+Homepage = "https://github.com/opensweep/opensweep"
+Issues = "https://github.com/opensweep/opensweep/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "opensweep.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+opensweep = ["rules/*.json", "locales/*.json", "data/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

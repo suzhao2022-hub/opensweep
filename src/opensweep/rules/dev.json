@@ -1,0 +1,208 @@
+{
+  "_comment": "Developer tool caches: package managers, IDEs, build tools.",
+  "rules": [
+    {
+      "id": "pip-cache",
+      "category": "dev",
+      "name": {"en": "pip download cache", "zh_CN": "pip 下载缓存"},
+      "description": {"en": "Python packages pip already downloaded. Installed packages are not affected.", "zh_CN": "pip 下载过的 Python 包。不影响已安装的包。"},
+      "paths": {
+        "windows": ["%PIP_CACHE_DIR%", "%LOCALAPPDATA%\\pip\\Cache"],
+        "linux": ["$PIP_CACHE_DIR", "~/.cache/pip"],
+        "darwin": ["$PIP_CACHE_DIR", "~/Library/Caches/pip"]
+      }
+    },
+    {
+      "id": "uv-cache",
+      "category": "dev",
+      "name": {"en": "uv cache", "zh_CN": "uv 缓存"},
+      "description": {"en": "Package cache of the uv Python tool. Existing virtual environments keep working.", "zh_CN": "uv 的包缓存。已有的虚拟环境不受影响。"},
+      "paths": {
+        "windows": ["%UV_CACHE_DIR%", "%LOCALAPPDATA%\\uv\\cache"],
+        "linux": ["$UV_CACHE_DIR", "~/.cache/uv"],
+        "darwin": ["$UV_CACHE_DIR", "~/.cache/uv"]
+      },
+      "close_apps": ["uv.exe", "uv"]
+    },
+    {
+      "id": "conda-pkgs",
+      "category": "dev",
+      "name": {"en": "Conda package cache", "zh_CN": "Conda 包缓存"},
+      "description": {"en": "Downloaded conda packages. Same as 'conda clean --all'; environments keep working.", "zh_CN": "已下载的 conda 包，相当于“conda clean --all”，已有环境不受影响。"},
+      "paths": {
+        "windows": ["~\\miniconda3\\pkgs", "~\\anaconda3\\pkgs", "~\\miniforge3\\pkgs", "~\\.conda\\pkgs", "%ProgramData%\\miniconda3\\pkgs", "%ProgramData%\\anaconda3\\pkgs"],
+        "linux": ["~/miniconda3/pkgs", "~/anaconda3/pkgs", "~/miniforge3/pkgs", "~/.conda/pkgs"],
+        "darwin": ["~/miniconda3/pkgs", "~/anaconda3/pkgs", "~/miniforge3/pkgs", "~/.conda/pkgs"]
+      },
+      "risk": "review"
+    },
+    {
+      "id": "npm-cache",
+      "category": "dev",
+      "name": {"en": "npm cache", "zh_CN": "npm 缓存"},
+      "description": {"en": "Downloaded Node.js packages. Projects keep working.", "zh_CN": "下载过的 Node.js 包，不影响现有项目。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\npm-cache", "%APPDATA%\\npm-cache"],
+        "linux": ["~/.npm/_cacache"],
+        "darwin": ["~/.npm/_cacache"]
+      }
+    },
+    {
+      "id": "yarn-cache",
+      "category": "dev",
+      "name": {"en": "Yarn cache", "zh_CN": "Yarn 缓存"},
+      "description": {"en": "Downloaded Node.js packages.", "zh_CN": "下载过的 Node.js 包。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\Yarn\\Cache"],
+        "linux": ["~/.cache/yarn"],
+        "darwin": ["~/Library/Caches/Yarn"]
+      }
+    },
+    {
+      "id": "pnpm-store",
+      "category": "dev",
+      "name": {"en": "pnpm store", "zh_CN": "pnpm 存储"},
+      "description": {"en": "Shared pnpm package store. Projects may need 'pnpm install' again.", "zh_CN": "pnpm 的共享包存储，清理后项目可能需要重新运行“pnpm install”。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\pnpm\\store", "%LOCALAPPDATA%\\pnpm-cache"],
+        "linux": ["~/.local/share/pnpm/store", "~/.cache/pnpm"],
+        "darwin": ["~/Library/pnpm/store", "~/Library/Caches/pnpm"]
+      },
+      "risk": "review"
+    },
+    {
+      "id": "go-build-cache",
+      "category": "dev",
+      "name": {"en": "Go build cache", "zh_CN": "Go 编译缓存"},
+      "description": {"en": "Rebuilt automatically.", "zh_CN": "会自动重建。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\go-build"],
+        "linux": ["~/.cache/go-build"],
+        "darwin": ["~/Library/Caches/go-build"]
+      }
+    },
+    {
+      "id": "cargo-cache",
+      "category": "dev",
+      "name": {"en": "Rust Cargo registry cache", "zh_CN": "Rust Cargo 缓存"},
+      "description": {"en": "Downloaded crate archives. Downloaded again when needed.", "zh_CN": "下载过的 crate 压缩包，需要时会重新下载。"},
+      "paths": {
+        "windows": ["~\\.cargo\\registry\\cache"],
+        "linux": ["~/.cargo/registry/cache"],
+        "darwin": ["~/.cargo/registry/cache"]
+      }
+    },
+    {
+      "id": "gradle-cache",
+      "category": "dev",
+      "name": {"en": "Gradle caches", "zh_CN": "Gradle 缓存"},
+      "description": {"en": "Downloaded dependencies and build caches. The next build is slower.", "zh_CN": "下载的依赖和构建缓存。清理后下次构建会慢一些。"},
+      "paths": {
+        "windows": ["~\\.gradle\\caches"],
+        "linux": ["~/.gradle/caches"],
+        "darwin": ["~/.gradle/caches"]
+      },
+      "risk": "review",
+      "close_apps": ["studio64.exe", "idea64.exe"]
+    },
+    {
+      "id": "maven-repo",
+      "category": "dev",
+      "name": {"en": "Maven local repository", "zh_CN": "Maven 本地仓库"},
+      "description": {"en": "Downloaded Java dependencies. Downloaded again on the next build.", "zh_CN": "下载的 Java 依赖，下次构建时会重新下载。"},
+      "paths": {
+        "windows": ["~\\.m2\\repository"],
+        "linux": ["~/.m2/repository"],
+        "darwin": ["~/.m2/repository"]
+      },
+      "risk": "review"
+    },
+    {
+      "id": "nuget-cache",
+      "category": "dev",
+      "name": {"en": "NuGet cache", "zh_CN": "NuGet 缓存"},
+      "description": {"en": ".NET packages. Restored again on the next build.", "zh_CN": ".NET 包，下次构建时会重新还原。"},
+      "paths": {
+        "windows": ["~\\.nuget\\packages", "%LOCALAPPDATA%\\NuGet\\v3-cache", "%LOCALAPPDATA%\\NuGet\\plugins-cache"],
+        "linux": ["~/.nuget/packages"],
+        "darwin": ["~/.nuget/packages"]
+      },
+      "risk": "review"
+    },
+    {
+      "id": "vscode-cache",
+      "category": "dev",
+      "name": {"en": "VS Code cache", "zh_CN": "VS Code 缓存"},
+      "description": {"en": "Web cache, cached updates and logs. Settings and extensions are kept. Close VS Code first.", "zh_CN": "网页缓存、更新缓存和日志。不会删除设置和插件。请先关闭 VS Code。"},
+      "paths": {
+        "windows": ["%APPDATA%\\Code\\Cache", "%APPDATA%\\Code\\Code Cache", "%APPDATA%\\Code\\GPUCache", "%APPDATA%\\Code\\CachedData", "%APPDATA%\\Code\\CachedExtensionVSIXs", "%APPDATA%\\Code\\logs"],
+        "linux": ["~/.config/Code/Cache", "~/.config/Code/CachedData", "~/.config/Code/logs"],
+        "darwin": ["~/Library/Application Support/Code/Cache", "~/Library/Application Support/Code/CachedData", "~/Library/Application Support/Code/logs"]
+      },
+      "close_apps": ["Code.exe", "Code"]
+    },
+    {
+      "id": "jetbrains-cache",
+      "category": "dev",
+      "name": {"en": "JetBrains IDE caches", "zh_CN": "JetBrains IDE 缓存"},
+      "description": {"en": "Index caches of IntelliJ, PyCharm, WebStorm, etc. The IDE re-indexes on next start.", "zh_CN": "IntelliJ、PyCharm、WebStorm 等的索引缓存。下次启动时会重新索引。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\JetBrains\\*\\caches", "%LOCALAPPDATA%\\JetBrains\\*\\index", "%LOCALAPPDATA%\\JetBrains\\*\\log"],
+        "linux": ["~/.cache/JetBrains/*/caches", "~/.cache/JetBrains/*/index"],
+        "darwin": ["~/Library/Caches/JetBrains/*/caches", "~/Library/Caches/JetBrains/*/index"]
+      },
+      "risk": "review",
+      "close_apps": ["idea64.exe", "pycharm64.exe", "webstorm64.exe", "goland64.exe", "clion64.exe", "rider64.exe", "phpstorm64.exe", "studio64.exe"]
+    },
+    {
+      "id": "playwright-browsers",
+      "category": "dev",
+      "name": {"en": "Playwright browsers", "zh_CN": "Playwright 浏览器"},
+      "description": {"en": "Browsers downloaded for testing. Install again with 'playwright install'.", "zh_CN": "测试用的浏览器，可以用“playwright install”重新安装。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\ms-playwright"],
+        "linux": ["~/.cache/ms-playwright"],
+        "darwin": ["~/Library/Caches/ms-playwright"]
+      },
+      "risk": "review",
+      "itemize": 1
+    },
+    {
+      "id": "puppeteer-browsers",
+      "category": "dev",
+      "name": {"en": "Puppeteer browsers", "zh_CN": "Puppeteer 浏览器"},
+      "description": {"en": "Browsers downloaded by Puppeteer.", "zh_CN": "Puppeteer 下载的浏览器。"},
+      "paths": {
+        "windows": ["~\\.cache\\puppeteer"],
+        "linux": ["~/.cache/puppeteer"],
+        "darwin": ["~/.cache/puppeteer"]
+      },
+      "risk": "review",
+      "itemize": 2
+    },
+    {
+      "id": "electron-cache",
+      "category": "dev",
+      "name": {"en": "Electron download cache", "zh_CN": "Electron 下载缓存"},
+      "description": {"en": "Electron and electron-builder downloads.", "zh_CN": "Electron 和 electron-builder 的下载缓存。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\electron\\Cache", "%LOCALAPPDATA%\\electron-builder\\Cache"],
+        "linux": ["~/.cache/electron", "~/.cache/electron-builder"],
+        "darwin": ["~/Library/Caches/electron", "~/Library/Caches/electron-builder"]
+      }
+    },
+    {
+      "id": "wsl-docker-disks",
+      "category": "dev",
+      "name": {"en": "WSL / Docker virtual disks", "zh_CN": "WSL / Docker 虚拟磁盘"},
+      "description": {"en": "These disks grow but never shrink on their own. To reclaim space: run 'docker system prune' (Docker), then 'wsl --shutdown', then compact the .vhdx with 'Optimize-VHD' or diskpart 'compact vdisk'. OpenSweep only reports their size.", "zh_CN": "这些虚拟磁盘只会变大，不会自动变小。释放空间的方法：先运行“docker system prune”（Docker），再运行“wsl --shutdown”，然后用“Optimize-VHD”或 diskpart 的“compact vdisk”压缩 .vhdx。OpenSweep 只显示它们的大小。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\Packages\\*\\LocalState\\ext4.vhdx", "%LOCALAPPDATA%\\Docker\\wsl\\disk\\docker_data.vhdx", "%LOCALAPPDATA%\\Docker\\wsl\\data\\ext4.vhdx", "%LOCALAPPDATA%\\Docker\\wsl\\main\\ext4.vhdx", "%LOCALAPPDATA%\\wsl\\*\\ext4.vhdx"]
+      },
+      "action": "report",
+      "risk": "review",
+      "itemize": 0,
+      "contents_only": false
+    }
+  ]
+}

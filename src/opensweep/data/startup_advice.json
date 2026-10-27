@@ -1,0 +1,22 @@
+{
+  "_comment": "Advice for startup apps. First matching group wins. A pattern matches any part of the entry name, exe name or exe description (letters/digits only, lowercase); a pattern starting with '=' must match a whole word. Add apps you know and send a pull request.",
+  "advice": {
+    "opensweep": "keep", "security": "keep", "input": "keep", "driver": "keep", "system": "keep",
+    "sync": "optional", "chat": "optional", "remote": "optional", "tool": "optional",
+    "updater": "disable", "cloud": "disable", "game": "disable", "media": "disable", "browser": "disable"
+  },
+  "groups": [
+    {"kind": "system", "match": ["securityhealth", "=ctfmon", "windowsterminal", "=explorer", "sihost", "onedrivesetup"]},
+    {"kind": "security", "match": ["windowsdefender", "msmpeng", "huorong", "hipstray", "火绒", "360tray", "360safe", "qqpcrtp", "qqpctray", "电脑管家", "kxetray", "金山毒霸", "=avp", "kaspersky", "mbam", "malwarebytes", "avast", "=avg", "eset", "=egui", "norton", "mcafee", "bitdefender"]},
+    {"kind": "browser", "match": ["microsoftedgeautolaunch", "msedge", "=chrome", "360se", "qqbrowser", "sogouexplorer", "2345"]},
+    {"kind": "remote", "match": ["todesk", "sunlogin", "向日葵", "anydesk", "teamviewer", "uuremote", "uu远程", "rustdesk", "parsec"]},
+    {"kind": "input", "match": ["sogou","搜狗", "sgtool", "baiduime", "百度输入法", "qqpinyin", "wetype", "微信输入法", "iflyime", "讯飞", "weasel", "rime"]},
+    {"kind": "driver", "match": ["rtkaud", "realtek", "igfx", "igcc", "nvcontainer", "nvbackend", "nvidia", "amdrsserv", "radeonsoftware", "amdsoftware", "synaptics", "syntp", "=etd", "elantech", "logioptions", "logitech", "razer", "dolby", "waves", "maxxaudio", "bluetooth", "intelgraphics", "esrv", "lenovovantage", "armourycrate", "asusoptimization", "dellsupport", "hpsupport", "msicenter", "hotkey", "fnhotkey", "touchpad", "audio", "wacom"]},
+    {"kind": "updater", "match": ["update", "updater", "googleupdate", "edgeupdate", "adobearm", "jusched", "softwareupdate", "升级", "更新"]},
+    {"kind": "sync", "match": ["onedrive", "dropbox", "googledrive", "icloud", "nutstore", "坚果云", "syncthing"]},
+    {"kind": "chat", "match": ["=qq", "qqnt", "wechat", "weixin", "微信", "dingtalk", "钉钉", "feishu", "飞书", "lark", "telegram", "discord", "slack", "=teams", "msteams", "skype", "=tim", "企业微信", "wxwork"]},
+    {"kind": "cloud", "match": ["baidunetdisk", "baiduyun", "百度网盘", "yundetect", "thunder", "xunlei", "迅雷", "quark", "夸克", "aliyundrive", "alipan", "阿里云盘", "123pan", "ecloud", "天翼", "=115", "weiyun", "微云"]},
+    {"kind": "game", "match": ["steam", "epicgames", "wegame", "leigod", "雷神", "=uu", "uubooster", "网易uu", "gamepp", "游戏加加", "mumu", "ldplayer", "雷电模拟器", "bluestacks", "eadesktop", "battle.net", "battlenet", "ubisoft", "rockstar", "garena", "riotclient", "wallpaperengine", "fevergames", "gameviewer", "网易游戏"]},
+    {"kind": "media", "match": ["bilibili", "哔哩哔哩", "douyin", "抖音", "kuaishou", "快手", "qqmusic", "cloudmusic", "网易云音乐", "kugou", "酷狗", "kuwo", "酷我", "spotify", "iqiyi", "爱奇艺", "youku", "优酷", "qqlive", "腾讯视频", "potplayer", "sodamusic", "汽水音乐", "jianying", "剪映"]}
+  ]
+}

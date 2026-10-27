@@ -1,0 +1,16 @@
+name: Bug report / 程序出错
+description: Something crashed or didn't work. / 程序崩溃或者某个功能用不了。
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened? / 发生了什么？
+      description: What did you click, what did you expect, what happened instead? / 你点了什么、期望什么、实际发生了什么？
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Error message (if any) / 错误提示（如果有）
+      render: text

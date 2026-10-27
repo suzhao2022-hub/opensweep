@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+packaging/opensweep.ico
+packaging/opensweep.png
+# local dev helpers
+_*.py
+_shots*/

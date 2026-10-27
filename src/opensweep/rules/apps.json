@@ -1,0 +1,113 @@
+{
+  "_comment": "Caches of everyday apps. Only caches: never chats, downloads or saved files.",
+  "rules": [
+    {
+      "id": "discord-cache",
+      "category": "apps",
+      "name": {"en": "Discord cache", "zh_CN": "Discord 缓存"},
+      "description": {"en": "Cached images and web data. Close Discord first.", "zh_CN": "缓存的图片和网页数据。请先关闭 Discord。"},
+      "paths": {
+        "windows": ["%APPDATA%\\discord\\Cache", "%APPDATA%\\discord\\Code Cache", "%APPDATA%\\discord\\GPUCache"],
+        "darwin": ["~/Library/Application Support/discord/Cache"],
+        "linux": ["~/.config/discord/Cache"]
+      },
+      "close_apps": ["Discord.exe", "Discord"]
+    },
+    {
+      "id": "slack-cache",
+      "category": "apps",
+      "name": {"en": "Slack cache", "zh_CN": "Slack 缓存"},
+      "description": {"en": "Cached images and web data. Close Slack first.", "zh_CN": "缓存的图片和网页数据。请先关闭 Slack。"},
+      "paths": {
+        "windows": ["%APPDATA%\\Slack\\Cache", "%APPDATA%\\Slack\\Code Cache", "%APPDATA%\\Slack\\GPUCache", "%APPDATA%\\Slack\\Service Worker\\CacheStorage"],
+        "darwin": ["~/Library/Application Support/Slack/Cache"]
+      },
+      "close_apps": ["slack.exe", "Slack"]
+    },
+    {
+      "id": "spotify-cache",
+      "category": "apps",
+      "name": {"en": "Spotify cache", "zh_CN": "Spotify 缓存"},
+      "description": {"en": "Streamed music cache. Downloaded playlists are kept. Close Spotify first.", "zh_CN": "在线播放的音乐缓存，不会删除已下载的歌单。请先关闭 Spotify。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\Spotify\\Data", "%LOCALAPPDATA%\\Spotify\\Browser\\Cache"],
+        "darwin": ["~/Library/Caches/com.spotify.client/Data"]
+      },
+      "close_apps": ["Spotify.exe", "Spotify"]
+    },
+    {
+      "id": "steam-web-cache",
+      "category": "apps",
+      "name": {"en": "Steam web cache", "zh_CN": "Steam 网页缓存"},
+      "description": {"en": "Store and community page cache. Games are not touched. Close Steam first.", "zh_CN": "商店和社区页面的缓存，不会动游戏文件。请先关闭 Steam。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\Steam\\htmlcache", "%ProgramFiles(x86)%\\Steam\\appcache\\httpcache"]
+      },
+      "close_apps": ["steam.exe", "steamwebhelper.exe"]
+    },
+    {
+      "id": "adobe-media-cache",
+      "category": "apps",
+      "name": {"en": "Adobe media cache", "zh_CN": "Adobe 媒体缓存"},
+      "description": {"en": "Premiere Pro / After Effects media cache. Rebuilt when projects are opened. Close Adobe apps first.", "zh_CN": "Premiere Pro / After Effects 的媒体缓存，打开项目时会重建。请先关闭 Adobe 软件。"},
+      "paths": {
+        "windows": ["%APPDATA%\\Adobe\\Common\\Media Cache Files", "%APPDATA%\\Adobe\\Common\\Media Cache"],
+        "darwin": ["~/Library/Application Support/Adobe/Common/Media Cache Files", "~/Library/Application Support/Adobe/Common/Media Cache"]
+      },
+      "risk": "review",
+      "close_apps": ["Adobe Premiere Pro.exe", "AfterFX.exe", "Adobe Media Encoder.exe"]
+    },
+    {
+      "id": "wechat-cache",
+      "category": "apps",
+      "name": {"en": "WeChat cache and temp files", "zh_CN": "微信缓存和临时文件"},
+      "description": {"en": "WeChat's cache and temp folders. Chat history and files you received are not touched, but pictures in old chats may need to be downloaded again (expired ones may no longer open). Close WeChat first.", "zh_CN": "微信的缓存和临时文件夹。不会删除聊天记录和收到的文件，但较早聊天里的图片可能需要重新加载，已过期的可能打不开。请先关闭微信。"},
+      "paths": {
+        "windows": ["~\\Documents\\WeChat Files\\*\\FileStorage\\Cache", "~\\Documents\\WeChat Files\\*\\FileStorage\\Temp", "~\\Documents\\xwechat_files\\*\\cache", "~\\Documents\\xwechat_files\\*\\temp"]
+      },
+      "risk": "review",
+      "itemize": 0,
+      "close_apps": ["WeChat.exe", "Weixin.exe"]
+    },
+    {
+      "id": "qq-logs",
+      "category": "apps",
+      "name": {"en": "QQ and Tencent logs", "zh_CN": "QQ 和腾讯软件日志"},
+      "description": {"en": "Log files written by QQ and other Tencent programs. Chats are not touched. Close QQ first.", "zh_CN": "QQ 和其他腾讯软件写的日志文件，不会动聊天记录。请先关闭 QQ。"},
+      "paths": {
+        "windows": ["~\\Documents\\Tencent Files\\*\\nt_qq\\nt_data\\log", "%APPDATA%\\Tencent\\Logs"]
+      },
+      "close_apps": ["QQ.exe"]
+    },
+    {
+      "id": "cloudmusic-cache",
+      "category": "apps",
+      "name": {"en": "NetEase Cloud Music cache", "zh_CN": "网易云音乐缓存"},
+      "description": {"en": "Songs cached while streaming. Downloaded songs are kept. Close Cloud Music first.", "zh_CN": "在线听歌时的缓存，不会删除下载的歌曲。请先关闭网易云音乐。"},
+      "paths": {
+        "windows": ["%LOCALAPPDATA%\\NetEase\\CloudMusic\\Cache"]
+      },
+      "close_apps": ["cloudmusic.exe"]
+    },
+    {
+      "id": "app-web-caches",
+      "category": "apps",
+      "name": {"en": "Web caches of other apps", "zh_CN": "其他软件的网页缓存"},
+      "description": {"en": "Many apps (QQ, Douyin, Bilibili, DingTalk, Feishu, Quark, Notion…) are built on Chromium and keep the same kind of web cache as a browser. Only those standard cache folders are cleaned; logins, chats and settings are kept. Each app is listed separately.", "zh_CN": "很多软件（QQ、抖音、哔哩哔哩、钉钉、飞书、夸克、Notion 等）都是基于 Chromium 做的，会像浏览器一样保存网页缓存。这里只清理这些标准的缓存文件夹，不会动登录状态、聊天记录和设置。每个软件单独列出。"},
+      "paths": {"windows": []},
+      "provider": "chromium",
+      "itemize": 1,
+      "fallback": true
+    },
+    {
+      "id": "teams-cache",
+      "category": "apps",
+      "name": {"en": "Microsoft Teams (classic) cache", "zh_CN": "Microsoft Teams（经典版）缓存"},
+      "description": {"en": "Cache of the classic Teams app. Close Teams first.", "zh_CN": "经典版 Teams 的缓存。请先关闭 Teams。"},
+      "paths": {
+        "windows": ["%APPDATA%\\Microsoft\\Teams\\Cache", "%APPDATA%\\Microsoft\\Teams\\Code Cache", "%APPDATA%\\Microsoft\\Teams\\GPUCache", "%APPDATA%\\Microsoft\\Teams\\Service Worker\\CacheStorage"]
+      },
+      "close_apps": ["Teams.exe"]
+    }
+  ]
+}

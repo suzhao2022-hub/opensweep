@@ -1,0 +1,17 @@
+name: OpenSweep said something wrong / 判断错误
+description: An item was explained or labelled wrongly (e.g. "safe" but it isn't). / 某一项的说明或“能不能删”判断不对。
+labels: [misjudgment]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! The details below were filled in by OpenSweep. Your user name has been replaced with `<user>`.
+        Please check them and remove anything you don't want to share.
+        感谢反馈！下面的信息由 OpenSweep 自动填写，用户名已替换成 `<user>`。发送前请检查，删掉不想公开的内容。
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong and what should it say? / 哪里不对？应该怎么说？
+      placeholder: e.g. This folder holds my game saves, it should not be "safe to clean". / 例如：这个文件夹里是游戏存档，不应该标成“可以清理”。
+    validations:
+      required: true

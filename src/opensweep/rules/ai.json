@@ -1,0 +1,173 @@
+{
+  "_comment": "AI models and caches. Models are 'review': listed one by one, never cleaned by one-click.",
+  "rules": [
+    {
+      "id": "huggingface-hub",
+      "category": "ai",
+      "name": {"en": "Hugging Face models & datasets", "zh_CN": "Hugging Face 模型和数据集"},
+      "description": {"en": "Downloaded by transformers, diffusers, vLLM and others. Each one is listed separately; deleted ones are downloaded again the next time a program needs them.", "zh_CN": "transformers、diffusers、vLLM 等下载的模型。每个模型单独列出；删除后，下次有程序需要时会重新下载。"},
+      "paths": {
+        "windows": ["%HF_HUB_CACHE%", "%HF_HOME%\\hub", "~\\.cache\\huggingface\\hub"],
+        "linux": ["$HF_HUB_CACHE", "$HF_HOME/hub", "~/.cache/huggingface/hub"],
+        "darwin": ["$HF_HUB_CACHE", "$HF_HOME/hub", "~/.cache/huggingface/hub"]
+      },
+      "risk": "review",
+      "itemize": 1,
+      "item_patterns": ["models--*", "datasets--*", "spaces--*"],
+      "label_style": "huggingface"
+    },
+    {
+      "id": "huggingface-xet",
+      "category": "ai",
+      "name": {"en": "Hugging Face download cache (Xet)", "zh_CN": "Hugging Face 下载缓存（Xet）"},
+      "description": {"en": "Chunk cache used while downloading. Safe to clear.", "zh_CN": "下载时使用的分块缓存，可以放心清理。"},
+      "paths": {
+        "windows": ["%HF_HOME%\\xet", "~\\.cache\\huggingface\\xet"],
+        "linux": ["$HF_HOME/xet", "~/.cache/huggingface/xet"],
+        "darwin": ["$HF_HOME/xet", "~/.cache/huggingface/xet"]
+      }
+    },
+    {
+      "id": "ollama-models",
+      "category": "ai",
+      "name": {"en": "Ollama models", "zh_CN": "Ollama 模型"},
+      "description": {"en": "Local models pulled with Ollama. Removed with 'ollama rm' so shared layers of other models stay intact.", "zh_CN": "用 Ollama 下载的本地模型。删除时使用“ollama rm”，不会影响其他模型共用的文件。"},
+      "paths": {"windows": [], "linux": [], "darwin": []},
+      "provider": "ollama",
+      "risk": "review"
+    },
+    {
+      "id": "lmstudio-models",
+      "category": "ai",
+      "name": {"en": "LM Studio models", "zh_CN": "LM Studio 模型"},
+      "description": {"en": "Models downloaded in LM Studio (default locations only).", "zh_CN": "在 LM Studio 中下载的模型（仅默认位置）。"},
+      "paths": {
+        "windows": ["~\\.lmstudio\\models", "~\\.cache\\lm-studio\\models"],
+        "linux": ["~/.lmstudio/models", "~/.cache/lm-studio/models"],
+        "darwin": ["~/.lmstudio/models", "~/.cache/lm-studio/models"]
+      },
+      "risk": "review",
+      "itemize": 2,
+      "close_apps": ["LM Studio.exe", "LM Studio"]
+    },
+    {
+      "id": "modelscope-hub",
+      "category": "ai",
+      "name": {"en": "ModelScope models", "zh_CN": "ModelScope（魔搭）模型"},
+      "description": {"en": "Models downloaded from ModelScope. Downloaded again when needed.", "zh_CN": "从魔搭社区下载的模型，需要时会重新下载。"},
+      "paths": {
+        "windows": ["%MODELSCOPE_CACHE%\\hub\\models", "~\\.cache\\modelscope\\hub\\models"],
+        "linux": ["$MODELSCOPE_CACHE/hub/models", "~/.cache/modelscope/hub/models"],
+        "darwin": ["$MODELSCOPE_CACHE/hub/models", "~/.cache/modelscope/hub/models"]
+      },
+      "risk": "review",
+      "itemize": 2
+    },
+    {
+      "id": "torch-hub",
+      "category": "ai",
+      "name": {"en": "PyTorch Hub checkpoints", "zh_CN": "PyTorch 预训练权重"},
+      "description": {"en": "Pretrained weights downloaded by torchvision, timm and torch.hub.", "zh_CN": "torchvision、timm、torch.hub 下载的预训练权重。"},
+      "paths": {
+        "windows": ["%TORCH_HOME%\\hub", "~\\.cache\\torch\\hub"],
+        "linux": ["$TORCH_HOME/hub", "~/.cache/torch/hub"],
+        "darwin": ["$TORCH_HOME/hub", "~/.cache/torch/hub"]
+      },
+      "risk": "review",
+      "itemize": 1
+    },
+    {
+      "id": "torch-kernels",
+      "category": "ai",
+      "name": {"en": "PyTorch kernel cache", "zh_CN": "PyTorch 编译缓存"},
+      "description": {"en": "Compiled CUDA/Triton kernels. Rebuilt automatically.", "zh_CN": "编译好的 CUDA/Triton 内核，会自动重建。"},
+      "paths": {
+        "windows": ["~\\.cache\\torch\\kernels", "~\\.triton\\cache", "%LOCALAPPDATA%\\NVIDIA\\ComputeCache"],
+        "linux": ["~/.cache/torch/kernels", "~/.triton/cache", "~/.nv/ComputeCache"],
+        "darwin": ["~/.cache/torch/kernels"]
+      }
+    },
+    {
+      "id": "whisper-models",
+      "category": "ai",
+      "name": {"en": "Whisper speech models", "zh_CN": "Whisper 语音模型"},
+      "description": {"en": "Models downloaded by openai-whisper.", "zh_CN": "openai-whisper 下载的语音识别模型。"},
+      "paths": {
+        "windows": ["~\\.cache\\whisper"],
+        "linux": ["~/.cache/whisper"],
+        "darwin": ["~/.cache/whisper"]
+      },
+      "risk": "review",
+      "itemize": 1
+    },
+    {
+      "id": "keras-models",
+      "category": "ai",
+      "name": {"en": "Keras / TensorFlow models", "zh_CN": "Keras / TensorFlow 模型"},
+      "description": {"en": "Pretrained models and datasets downloaded by Keras.", "zh_CN": "Keras 下载的预训练模型和数据集。"},
+      "paths": {
+        "windows": ["~\\.keras\\models", "~\\.keras\\datasets"],
+        "linux": ["~/.keras/models", "~/.keras/datasets"],
+        "darwin": ["~/.keras/models", "~/.keras/datasets"]
+      },
+      "risk": "review",
+      "itemize": 1
+    },
+    {
+      "id": "ocr-face-models",
+      "category": "ai",
+      "name": {"en": "OCR & face models (EasyOCR, InsightFace)", "zh_CN": "OCR 和人脸模型（EasyOCR、InsightFace）"},
+      "description": {"en": "Downloaded again when needed.", "zh_CN": "需要时会重新下载。"},
+      "paths": {
+        "windows": ["~\\.EasyOCR\\model", "~\\.insightface\\models"],
+        "linux": ["~/.EasyOCR/model", "~/.insightface/models"],
+        "darwin": ["~/.EasyOCR/model", "~/.insightface/models"]
+      },
+      "risk": "review",
+      "itemize": 1
+    },
+    {
+      "id": "claude-desktop-cache",
+      "category": "ai",
+      "name": {"en": "Claude desktop app cache", "zh_CN": "Claude 桌面版缓存"},
+      "description": {"en": "Web cache of the Claude app. Conversations and login are kept. Close Claude first.", "zh_CN": "Claude 应用的网页缓存。不会删除对话和登录状态。请先关闭 Claude。"},
+      "paths": {
+        "windows": ["%APPDATA%\\Claude\\Cache", "%APPDATA%\\Claude\\Code Cache", "%APPDATA%\\Claude\\GPUCache"],
+        "darwin": ["~/Library/Application Support/Claude/Cache", "~/Library/Application Support/Claude/Code Cache"]
+      },
+      "close_apps": ["claude.exe", "Claude"]
+    },
+    {
+      "id": "cursor-cache",
+      "category": "ai",
+      "name": {"en": "Cursor cache", "zh_CN": "Cursor 缓存"},
+      "description": {"en": "Web cache, cached updates and logs. Settings and extensions are kept. Close Cursor first.", "zh_CN": "网页缓存、更新缓存和日志。不会删除设置和插件。请先关闭 Cursor。"},
+      "paths": {
+        "windows": ["%APPDATA%\\Cursor\\Cache", "%APPDATA%\\Cursor\\Code Cache", "%APPDATA%\\Cursor\\GPUCache", "%APPDATA%\\Cursor\\CachedData", "%APPDATA%\\Cursor\\CachedExtensionVSIXs", "%APPDATA%\\Cursor\\logs", "%LOCALAPPDATA%\\cursor-updater"],
+        "darwin": ["~/Library/Application Support/Cursor/Cache", "~/Library/Application Support/Cursor/CachedData", "~/Library/Application Support/Cursor/logs"],
+        "linux": ["~/.config/Cursor/Cache", "~/.config/Cursor/CachedData", "~/.config/Cursor/logs"]
+      },
+      "close_apps": ["Cursor.exe", "Cursor"]
+    },
+    {
+      "id": "windsurf-cache",
+      "category": "ai",
+      "name": {"en": "Windsurf cache", "zh_CN": "Windsurf 缓存"},
+      "description": {"en": "Web cache, cached updates and logs. Close Windsurf first.", "zh_CN": "网页缓存、更新缓存和日志。请先关闭 Windsurf。"},
+      "paths": {
+        "windows": ["%APPDATA%\\Windsurf\\Cache", "%APPDATA%\\Windsurf\\Code Cache", "%APPDATA%\\Windsurf\\GPUCache", "%APPDATA%\\Windsurf\\CachedData", "%APPDATA%\\Windsurf\\logs"]
+      },
+      "close_apps": ["Windsurf.exe"]
+    },
+    {
+      "id": "trae-cache",
+      "category": "ai",
+      "name": {"en": "Trae cache", "zh_CN": "Trae 缓存"},
+      "description": {"en": "Web cache, cached updates and logs. Close Trae first.", "zh_CN": "网页缓存、更新缓存和日志。请先关闭 Trae。"},
+      "paths": {
+        "windows": ["%APPDATA%\\Trae\\Cache", "%APPDATA%\\Trae\\Code Cache", "%APPDATA%\\Trae\\GPUCache", "%APPDATA%\\Trae\\CachedData", "%APPDATA%\\Trae\\logs", "%APPDATA%\\Trae CN\\Cache", "%APPDATA%\\Trae CN\\CachedData", "%APPDATA%\\Trae CN\\logs"]
+      },
+      "close_apps": ["Trae.exe", "Trae CN.exe"]
+    }
+  ]
+}

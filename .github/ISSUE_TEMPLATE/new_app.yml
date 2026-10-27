@@ -1,0 +1,20 @@
+name: Support a new app / 支持新软件
+description: An app's cache isn't cleaned or its startup entry has no advice yet. / 某个软件的缓存还清理不了，或开机启动项还没有建议。
+labels: [rules]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: App name / 软件名称
+    validations:
+      required: true
+  - type: textarea
+    id: paths
+    attributes:
+      label: Cache folder(s) you know of / 你知道的缓存文件夹
+      description: Use %APPDATA%, %LOCALAPPDATA% or ~ instead of your user name. / 用 %APPDATA%、%LOCALAPPDATA% 或 ~ 代替用户名。
+      placeholder: "%APPDATA%\\SomeApp\\Cache"
+  - type: textarea
+    id: safe
+    attributes:
+      label: Is it really safe to delete? How do you know? / 删了真的没问题吗？你怎么知道的？
