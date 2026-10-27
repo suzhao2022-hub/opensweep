@@ -31,7 +31,7 @@ No ads, no "upgrade to Pro", no telemetry. OpenSweep only connects to the intern
 
 ## Install
 
-Download `OpenSweep-x.y.z-setup.exe` (installer) or the portable zip from [Releases](https://github.com/opensweep/opensweep/releases).
+Download `OpenSweep-x.y.z-setup.exe` (installer) or the portable zip from [Releases](https://github.com/suzhao2022-hub/opensweep/releases).
 Windows 10/11, 64-bit.
 
 Run it as administrator to include Windows' own junk (update cache, system temp) and to use the fast disk map.

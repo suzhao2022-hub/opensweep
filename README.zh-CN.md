@@ -30,7 +30,7 @@
 
 ## 下载
 
-在 [Releases](https://github.com/opensweep/opensweep/releases) 下载安装包 `OpenSweep-x.y.z-setup.exe` 或免安装压缩包。支持 Windows 10/11 64 位。
+在 [Releases](https://github.com/suzhao2022-hub/opensweep/releases) 下载安装包 `OpenSweep-x.y.z-setup.exe` 或免安装压缩包。支持 Windows 10/11 64 位。
 
 以管理员身份运行，可以清理 Windows 自己的垃圾（更新缓存、系统临时文件），磁盘分析也会快很多。
 

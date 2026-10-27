@@ -35,8 +35,8 @@ opensweep-cli = "opensweep.cli:main"
 opensweep = "opensweep.gui.app:main"
 
 [project.urls]
-Homepage = "https://github.com/opensweep/opensweep"
-Issues = "https://github.com/opensweep/opensweep/issues"
+Homepage = "https://github.com/suzhao2022-hub/opensweep"
+Issues = "https://github.com/suzhao2022-hub/opensweep/issues"
 
 [tool.setuptools.dynamic]
 version = { attr = "opensweep.__version__" }
